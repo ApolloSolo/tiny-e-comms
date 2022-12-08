@@ -70,15 +70,6 @@ const registerUser = async (req, res) => {
 
     const token = await generateToken(newUser);
 
-    // Send HTTP-only cookie
-    res.cookie("token", token, {
-      path: "/",
-      httpOnly: true, // Flags the cookie to be used by the web server
-      expires: new Date(Date.now() + 1000 * 86400), // expires in one day
-      sameSite: "none",
-      secure: true, // Flags the cookie to be used by https only
-    });
-
     res.status(201).json({
       _id: newUser.id,
       username: newUser.username,
@@ -115,14 +106,6 @@ const loginUser = async (req, res) => {
     }
 
     const token = await generateToken(foundUser);
-    // Send HTTP-only cookie
-    res.cookie("token", token, {
-      path: "/",
-      httpOnly: true, // Flags the cookie to be used by the web server
-      expires: new Date(Date.now() + 1000 * 86400), // expires in one day
-      sameSite: "none",
-      secure: true, // Flags the cookie to be used by https only
-    });
 
     res.status(201).json({
       _id: foundUser.id,

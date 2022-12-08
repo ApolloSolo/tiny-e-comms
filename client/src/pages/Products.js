@@ -8,7 +8,7 @@ const Home = () => {
   const loadImages = async () => {
     try {
       setLoading(true);
-      const res = await fetch("/api/images");
+      const res = await fetch("/api/cloud/images");
       const data = await res.json();
       console.log(data);
 
@@ -20,7 +20,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    loadImages();
+    loadImages(); 
   }, []);
 
   return (

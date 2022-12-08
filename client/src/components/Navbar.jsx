@@ -73,13 +73,8 @@ const Navbar = () => {
           </div>
           {loggedIn ? (
             <li className="md:ml-8 text-xl md:my-0 my-6">
-              <a
-                onClick={logout}
-                href="/"
-                className="hover:text-gray-800 duration-200 font-semibold"
-              >
-                Logout
-              </a>
+              <Link to={"/upload_images"} className="hover:text-gray-800 duration-200 font-semibold mr-8">Image Upload</Link>
+              <Link to={"/"} onClick={logout} className="hover:text-gray-800 duration-200 font-semibold">Logout</Link>
             </li>
           ) : (
             <>
