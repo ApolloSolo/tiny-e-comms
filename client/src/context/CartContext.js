@@ -13,7 +13,7 @@ export function CartProvider({ children }) {
     for (let item of items) {
       price += item.price;
     }
-    setTotalPrice(price);
+    setTotalPrice(price.toFixed(2));
   };
 
   const addToCart = itemObj => {

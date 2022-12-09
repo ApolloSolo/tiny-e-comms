@@ -8,6 +8,8 @@ import SportsProducts from "./pages/products/SportsProducts";
 import OfficeProducts from "./pages/products/OfficeProducts";
 import { CartProvider } from "./context/CartContext";
 import Cart from "./pages/Cart";
+import Cancel from "./pages/Cancel";
+import Success from "./pages/Success";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
             <Route path="/products/sports" element={<SportsProducts />} />
             <Route path="/products/office" element={<OfficeProducts />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/client/cancel" element={<Cancel />} />
+            <Route path="/client/success/:purchase_id" element={<Success />} />
           </Routes>
         </main>
       </Router>
