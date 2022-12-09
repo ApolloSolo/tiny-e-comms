@@ -1,50 +1,35 @@
-import { useState, useEffect } from "react";
-import { Image } from "cloudinary-react";
+import React, { useEffect, useState } from "react";
+import Auth from "../utils/auth";
 
-const Home = () => {
-  const [imageIds, setImageIds] = useState("");
-  const [loading, setLoading] = useState(false);
+const Products = () => {
+  const userToken = Auth.getToken();
 
-  const loadImages = async () => {
-    try {
-      setLoading(true);
-      const res = await fetch("/api/cloud/images");
-      const data = await res.json();
-      console.log(data);
+  const [products, setProducts] = useState(null);
+  const [loading, setLoading] = useState(null);
 
-      setImageIds(data);
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
+  let productCategory;
   useEffect(() => {
-    loadImages(); 
+    productCategory = window.location.pathname.split("/");
+    productCategory = productCategory[productCategory.length - 1];
+    console.log(productCategory);
+
+    const getAllProducts = async () => {
+      const response = await fetch(`/api/products/${productCategory}`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${userToken}`,
+          "Content-Type": "application/json"
+        }
+      });
+
+      const data = await response.json();
+
+      console.log(data);
+    };
+    getAllProducts();
   }, []);
 
-  return (
-    <div>
-      <nav>
-        <h1>Home</h1>
-      </nav>
-      {loading
-        ? <p>LOADING...</p>
-        : <div>
-            {imageIds &&
-              imageIds.map((imageId, index) =>
-                <Image
-                  key={index}
-                  cloudName="dilgi4bff"
-                  publicId={imageId}
-                  width="300"
-                  height="200"
-                  crop="scale"
-                />
-              )}
-          </div>}
-    </div>
-  );
+  return <div>Products</div>;
 };
 
-export default Home;
+export default Products;

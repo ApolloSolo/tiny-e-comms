@@ -98,7 +98,7 @@ const Upload = () => {
       const data = await response.json();
 
       if (response.ok) {
-        window.location("/upload_images");
+        window.location.assign("/");
       } else throw new Error(data.error);
     } catch (error) {
       setSubmitProdError(error.message);

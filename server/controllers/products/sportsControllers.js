@@ -3,7 +3,7 @@ const { Sport } = require("../../models/index");
 const getSportsProducts = async (req, res) => {
   try {
     const sportsProducts = await Sport.find({}).select("-__v -password");
-    res.status(200).json({ sport: sportsProducts, message: "Success" });
+    res.status(200).json({ data: sportsProducts, message: "Success" });
   } catch (error) {
     res.json({
       error: error.message

@@ -24,7 +24,6 @@ const uploadImage = async (req, res) => {
     const uploadResponse = await cloudinary.uploader.upload(fileStr, {
       upload_preset: "guu5ztwg"
     });
-    console.log(uploadResponse); // url to save to MongoDB: uploadResponse.secure_url
     res.json(uploadResponse.secure_url);
   } catch (error) {
     res.json({

@@ -2,8 +2,8 @@ const { Office } = require("../../models/index");
 
 const getOfficeProducts = async (req, res) => {
   try {
-    const sportsProducts = await Office.find({}).select("-__v -password");
-    res.status(200).json({ sport: sportsProducts, message: "Success" });
+    const officeProducts = await Office.find({}).select("-__v -password");
+    res.status(200).json({ data: officeProducts, message: "Success" });
   } catch (error) {
     res.json({
       error: error.message

@@ -1,15 +1,19 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {
   FaBars,
   FaRegWindowClose,
   FaChevronDown,
-  FaChevronUp
+  FaChevronUp,
+  FaShoppingCart
 } from "react-icons/fa";
 import InnerDropdown from "./InnerDropdown";
 import Auth from "../utils/auth";
 import { Link } from "react-router-dom";
+import CartContext from "../context/CartContext";
 
 const Navbar = () => {
+  const { items } = useContext(CartContext);
+
   const loggedIn = Auth.loggedIn();
   // Define links for Service dropdown menu
   let Links = [
@@ -72,10 +76,29 @@ const Navbar = () => {
             {dropdown ? <InnerDropdown list={Links} /> : false}
           </div>
           {loggedIn ? (
-            <li className="md:ml-8 text-xl md:my-0 my-6">
-              <Link to={"/upload_images"} className="hover:text-gray-800 duration-200 font-semibold mr-8">Image Upload</Link>
-              <Link to={"/"} onClick={logout} className="hover:text-gray-800 duration-200 font-semibold">Logout</Link>
-            </li>
+            <>
+              <li className="md:ml-8 text-xl md:my-0 my-6">
+                <Link
+                  to={"/upload_images"}
+                  className="hover:text-gray-800 duration-200 font-semibold mr-8"
+                >
+                  Image Upload
+                </Link>
+                <Link
+                  to={"/"}
+                  onClick={logout}
+                  className="hover:text-gray-800 duration-200 font-semibold"
+                >
+                  Logout
+                </Link>
+              </li>
+              <Link to={"/cart"}>
+                <div className="flex items-center ml-6">
+                  <FaShoppingCart />
+                  <span className="ml-1">{items.length}</span>
+                </div>
+              </Link>
+            </>
           ) : (
             <>
               <li className="md:ml-8 text-xl md:my-0 my-6">
