@@ -11,7 +11,7 @@ const getUsers = async (req, res) => {
     res.status(200).json(users);
   } catch (error) {
     res.json({
-      error: error.message,
+      error: error.message
     });
   }
 };
@@ -25,7 +25,7 @@ const getMe = async (req, res) => {
     res.send(req.user);
   } catch (error) {
     res.json({
-      error: error.message,
+      error: error.message
     });
   }
 };
@@ -41,7 +41,7 @@ const getOneUser = async (req, res) => {
     res.status(200).json(foundUser);
   } catch (error) {
     res.json({
-      error: error.message,
+      error: error.message
     });
   }
 };
@@ -74,11 +74,11 @@ const registerUser = async (req, res) => {
       _id: newUser.id,
       username: newUser.username,
       password: newUser.password,
-      token,
+      token
     });
   } catch (error) {
     res.json({
-      error: error.message,
+      error: error.message
     });
   }
 };
@@ -111,11 +111,11 @@ const loginUser = async (req, res) => {
       _id: foundUser.id,
       username: foundUser.username,
       email: foundUser.email,
-      token,
+      token
     });
   } catch (error) {
     res.json({
-      error: error.message,
+      error: error.message
     });
   }
 };
@@ -127,12 +127,12 @@ async function logoutUser(req, res) {
       httpOnly: true,
       expires: new Date(0), // expires now
       sameSite: "none",
-      secure: true,
+      secure: true
     });
     return res.status(200).json({ message: "Logged out" });
   } catch (error) {
     res.json({
-      error: error.message,
+      error: error.message
     });
   }
 }
@@ -143,7 +143,7 @@ async function updateUser(req, res) {
     const body = req.body;
 
     const updatedUser = await User.findByIdAndUpdate(_id, body, {
-      new: true,
+      new: true
     }).select("-__v -password");
 
     if (!updatedUser) {
@@ -153,7 +153,7 @@ async function updateUser(req, res) {
     res.send(updatedUser);
   } catch (error) {
     res.json({
-      error: error.message,
+      error: error.message
     });
   }
 }
@@ -190,7 +190,7 @@ async function changePassword(req, res) {
     res.status(200).json({ message: "Changed password" });
   } catch (error) {
     res.json({
-      error: error.message,
+      error: error.message
     });
   }
 }
@@ -209,7 +209,7 @@ async function deleteUser(req, res) {
     res.status(200).json({ message: "Delete User", deleted: deletedUser });
   } catch (error) {
     res.json({
-      error: error.message,
+      error: error.message
     });
   }
 }
@@ -228,7 +228,7 @@ async function loginStatus(req, res) {
     return res.json(false);
   } catch (error) {
     res.json({
-      error: error.message,
+      error: error.message
     });
   }
 }
@@ -240,7 +240,7 @@ async function forgotPassword(req, res) {
 
     if (!user) {
       res.status(404);
-      throw new Error("User email does not exits");
+      throw new Error("Not a valid user email");
     }
 
     // Delete token if exits in DB for user
@@ -262,7 +262,7 @@ async function forgotPassword(req, res) {
       userId: user._id,
       token: hashedToken,
       createdAt: Date.now(),
-      expiresAt: Date.now() + 30 * (60 * 1000), // 30 minutes
+      expiresAt: Date.now() + 30 * (60 * 1000) // 30 minutes
     }).save();
 
     // Construct reset URL
@@ -288,7 +288,7 @@ async function forgotPassword(req, res) {
     res.status(200).json({ success: true, message: "Reset email sent" });
   } catch (error) {
     res.json({
-      error: error.message,
+      error: error.message
     });
   }
 }
@@ -314,7 +314,7 @@ async function resetPassword(req, res) {
     // Get DB token
     const dbToken = await Token.findOne({
       token: hashedToken,
-      expiresAt: { $gt: Date.now() },
+      expiresAt: { $gt: Date.now() }
     });
 
     if (!dbToken) {
@@ -329,12 +329,12 @@ async function resetPassword(req, res) {
 
     res.status(201).json({
       success: true,
-      message: "Password reset successful. Please log in.",
+      message: "Password reset successful. Please log in."
     });
   } catch (error) {
     res.json({
       error: error.message,
-      stack: error.stack,
+      stack: error.stack
     });
   }
 }
@@ -351,5 +351,5 @@ module.exports = {
   deleteUser,
   loginStatus,
   forgotPassword,
-  resetPassword,
+  resetPassword
 };

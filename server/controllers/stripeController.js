@@ -25,9 +25,7 @@ const sessionCheckout = async (req, res) => {
       cancel_url: `${process.env.CLIENT_URL}/cancel`
     });
 
-    const boughtItmes = await Purchase.create({user: req.user._id, itemsPurchased: JSON.stringify(items)})
-    await User.findByIdAndUpdate(req.user._id, { $push: {purchases: boughtItmes._id} })
-
+    
     res.json({ url: session.url });
   } catch (error) {
     res.json({

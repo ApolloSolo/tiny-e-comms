@@ -19,7 +19,8 @@ const Navbar = () => {
   let Links = [
     { name: "All Products", link: "/products" },
     { name: "Sports", link: "/products/sports" },
-    { name: "Office", link: "/products/office" }
+    { name: "Office", link: "/products/office" },
+    { name: "Settings", link: "/settings" }
   ];
   let [open, setOpen] = useState(false);
   let [dropdown, setDropdown] = useState(false);

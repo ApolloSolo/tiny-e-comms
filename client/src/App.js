@@ -10,6 +10,8 @@ import { CartProvider } from "./context/CartContext";
 import Cart from "./pages/Cart";
 import Cancel from "./pages/Cancel";
 import Success from "./pages/Success";
+import Settings from "./pages/admin_settings/Settings";
+import ForgotPassword from "./pages/admin_settings/ForgotPassword";
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/client/cancel" element={<Cancel />} />
             <Route path="/client/success/:purchase_id" element={<Success />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/forgot_pass" element={<ForgotPassword />} />
           </Routes>
         </main>
       </Router>
