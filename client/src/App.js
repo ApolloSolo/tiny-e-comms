@@ -23,9 +23,9 @@ function App() {
         </header>
         <main>
           <Routes>
+          <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/upload_images" element={<Upload />} />
-            <Route path="/" element={<Home />} />
             <Route path="/products/sports" element={<SportsProducts />} />
             <Route path="/products/office" element={<OfficeProducts />} />
             <Route path="/cart" element={<Cart />} />
