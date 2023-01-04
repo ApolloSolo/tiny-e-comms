@@ -23,7 +23,7 @@ function App() {
         </header>
         <main>
           <Routes>
-          <Route path="https://tiny-e-comms.herokuapp.com/" element={<Home />} />
+          <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/upload_images" element={<Upload />} />
             <Route path="/products/sports" element={<SportsProducts />} />
