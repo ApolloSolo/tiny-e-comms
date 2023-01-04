@@ -12,13 +12,15 @@ export default function Login() {
   const loginUser = async (email, password) => {
     try {
       const response = await fetch("/api/user/login", {
+        mode: "cors",
         method: "POST",
         body: JSON.stringify({
           email,
           password
         }),
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*"
         }
       });
 
@@ -26,7 +28,7 @@ export default function Login() {
 
       if (response.ok) {
         Auth.login(data.token);
-      } else throw new Error(data.error)
+      } else throw new Error(data.error);
     } catch (error) {
       setLoginError(error.message);
     }
@@ -105,7 +107,7 @@ export default function Login() {
           <p className="text-center mt-4 font-bold text-red-600">
             {loginError}
           </p>}
-      </div>   
+      </div>
     </div>
   );
 }

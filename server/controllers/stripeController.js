@@ -35,17 +35,3 @@ const sessionCheckout = async (req, res) => {
 };
 
 module.exports = { sessionCheckout };
-
-/* 
-{
-  purchases: [],
-  _id: new ObjectId("6391ed496db5f75d5a210080"),
-  username: 'AppSolo',
-  email: 'appsolo.tech@gmail.com',
-  photos: 'https://png.pngtree.com/png-clipart/20210915/ourmid/pngtree-user-avatar-placeholder-png-image_3918418.jpg',
-  createdAt: 2022-12-08T13:57:29.230Z,
-  updatedAt: 2022-12-08T13:57:29.230Z,
-  __v: 0
-}
-
-*/
