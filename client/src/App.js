@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Upload from "./pages/Upload";
 import Navbar from "./components/Navbar";
-import Products from "./pages/Products";
 import Login from "./pages/Login";
 import SportsProducts from "./pages/products/SportsProducts";
 import OfficeProducts from "./pages/products/OfficeProducts";
@@ -24,7 +23,7 @@ function App() {
         </header>
         <main>
           <Routes>
-            <Route path="login" element={<Login />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/upload_images" element={<Upload />} />
             <Route path="/" element={<Home />} />
             <Route path="/products/sports" element={<SportsProducts />} />
