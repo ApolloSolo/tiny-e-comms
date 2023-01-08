@@ -23,8 +23,16 @@ function App() {
         </header>
         <main>
           <Routes>
-          <Route path="/" element={<Home />} />
-            
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/upload_images" element={<Upload />} />
+            <Route path="/products/sports" element={<SportsProducts />} />
+            <Route path="/products/office" element={<OfficeProducts />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/client/cancel" element={<Cancel />} />
+            <Route path="/client/success/:purchase_id" element={<Success />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/forgot_pass" element={<ForgotPassword />} />
           </Routes>
         </main>
       </Router>
@@ -33,14 +41,3 @@ function App() {
 }
 
 export default App;
-
-
-{/* <Route path="/login" element={<Login />} />
-            <Route path="/upload_images" element={<Upload />} />
-            <Route path="/products/sports" element={<SportsProducts />} />
-            <Route path="/products/office" element={<OfficeProducts />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/client/cancel" element={<Cancel />} />
-            <Route path="/client/success/:purchase_id" element={<Success />} />
-            <Route path="/settings" element={<Settings />} />
-            <Route path="/forgot_pass" element={<ForgotPassword />} /> */}
