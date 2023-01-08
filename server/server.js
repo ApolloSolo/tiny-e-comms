@@ -14,7 +14,7 @@ app.use(cors());
 app.use(require("./routes"));
 
 // Serve frontend
-if ((process.env.NODE_ENV = "production")) {
+/* if ((process.env.NODE_ENV = "production")) {
   app.use(express.static(path.join(__dirname, "../client/build")));
 
   app.get("*", (req, res) => {
@@ -22,7 +22,7 @@ if ((process.env.NODE_ENV = "production")) {
       path.resolve(__dirname, "../", "client", "build", "index.html")
     );
   });
-}
+} */
 
 
 db.once("open", () => {
