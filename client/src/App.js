@@ -12,17 +12,16 @@ import Success from "./pages/Success";
 import Settings from "./pages/admin_settings/Settings";
 import ForgotPassword from "./pages/admin_settings/ForgotPassword";
 import Signup from "./pages/Signup";
+import BonsaiProducts from "./pages/products/BonsaiProducts";
 
 function App() {
   return (
     <CartProvider>
       <Router>
         <header>
-          <nav>
-            <Navbar />
-          </nav>
+          <Navbar />
         </header>
-        <main>
+        <main className="dark:bg-slate-300 h-[calc(100vh-66px)]">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
@@ -30,6 +29,7 @@ function App() {
             <Route path="/upload_images" element={<Upload />} />
             <Route path="/products/sports" element={<SportsProducts />} />
             <Route path="/products/office" element={<OfficeProducts />} />
+            <Route path="/products/bonsai" element={<BonsaiProducts />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/client/cancel" element={<Cancel />} />
             <Route path="/client/success/:purchase_id" element={<Success />} />

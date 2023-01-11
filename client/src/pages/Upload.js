@@ -106,9 +106,9 @@ const Upload = () => {
   };
 
   return (
-    <div className="mt-4 p-4">
-      <div className="border-[#00273d73] border-2 p-4 rounded-lg shadow-md">
-        <h2 className="text-center font-bold mb-4">Image Upload</h2>
+    <div className="p-4">
+      <div className="border-[#00273d73] border-2 p-4 rounded-lg shadow-md dark:bg-gray-800 dark:text-[#fdf8ad]">
+        <h2 className="text-center font-bold mb-4">Choose An Image Of Your Product</h2>
         <div className="flex flex-col justify-center sm:flex-row">
           <form onSubmit={handleSubmitFile} className="flex flex-col">
             <input
@@ -125,13 +125,13 @@ const Upload = () => {
               Upload
             </button>
           </form>
-          <div className="w-full bg-slate-300 flex justify-center p-6 rounded-sm max-w-lg sm:ml-12">
+          <div className="w-full bg-gray-200  flex justify-center p-6 rounded-sm max-w-lg sm:ml-12">
             <PreviewImageUpload source={previewSource} />
           </div>
         </div>
       </div>
 
-      <div className="mx-auto max-w-xl border-[#00273d73] border-2 py-8 px-4 mt-4 rounded-lg shadow-md">
+      <div className="mx-auto max-w-xl border-[#00273d73] border-2 py-8 px-4 mt-4 rounded-lg shadow-md dark:bg-gray-800 dark:text-[#fdf8ad]">
         <h2 className="text-center font-bold mb-4">Submit Product Details</h2>
         <form className="mt-6">
           <div className="mb-2">

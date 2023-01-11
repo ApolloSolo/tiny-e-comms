@@ -21,6 +21,7 @@ const Navbar = () => {
     { name: "All Products", link: "/products" },
     { name: "Sports", link: "/products/sports" },
     { name: "Office", link: "/products/office" },
+    { name: "Bonsai", link: "/products/bonsai" },
     { name: "Settings", link: "/settings" }
   ];
   let [open, setOpen] = useState(false);
@@ -31,10 +32,10 @@ const Navbar = () => {
     Auth.logout();
   };
   return (
-    <nav className="shadow-md relative w-full bg-blue-500 dark:bg-gray-800 dark:text-[#fdf8ad]">
+    <nav className="shadow-md relative w-full bg-green-500 dark:bg-gray-800 dark:text-[#fdf8ad] nav-shadow-dark">
       <div className="md:flex justify-between py-2 px-6">
         <div className="flex items-center font-bold text-2xl cursor-pointer">
-        <Switcher />
+          <Switcher />
           <Link to={"/home"}>My-Amazona</Link>
         </div>
         <div
@@ -113,7 +114,10 @@ const Navbar = () => {
                 </a>
               </li>
               <li className="md:ml-8 text-xl md:my-0 my-6">
-              <Link to={"/register"} className="hover:text-gray-800 dark:hover:text-gray-200 duration-200 font-semibold">
+                <Link
+                  to={"/register"}
+                  className="hover:text-gray-800 dark:hover:text-gray-200 duration-200 font-semibold"
+                >
                   Sign Up
                 </Link>
               </li>
